@@ -13,6 +13,10 @@ public class ProdutosDTO {
     private Integer valor;
     private String status;
 
+    public ProdutosDTO(){
+    }
+
+    
     public Integer getId() {
         return id;
     }
@@ -44,5 +48,7 @@ public class ProdutosDTO {
     public void setStatus(String status) {
         this.status = status;
     }
+
+   
     
 }
