@@ -15,13 +15,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class listagemVIEW extends javax.swing.JFrame {
 
-    ArrayList<ProdutosDTO> listagem = new ArrayList<>();
-    private final String[] tableColumns = {"ID","Nome", "Valor", "Status"};
-    DefaultTableModel tableModel = new DefaultTableModel(tableColumns, 0);
-
     public listagemVIEW() {
         initComponents();
-      
+        listarProdutos();
     }
 
     /**
@@ -49,6 +45,8 @@ public class listagemVIEW extends javax.swing.JFrame {
         listaProdutos.setAutoCreateRowSorter(true);
         listaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -152,7 +150,7 @@ public class listagemVIEW extends javax.swing.JFrame {
 
         ProdutosDAO produtosdao = new ProdutosDAO();
 
-        //produtosdao.venderProduto(Integer.parseInt(id));
+        produtosdao.venderProduto(Integer.parseInt(id));
         listarProdutos();
     }//GEN-LAST:event_btnVenderActionPerformed
 
@@ -213,14 +211,7 @@ public class listagemVIEW extends javax.swing.JFrame {
     private javax.swing.JTable listaProdutos;
     // End of variables declaration//GEN-END:variables
 
-    public void inserirProdutos(ProdutosDTO produtos) {
-
-        listagem.add(produtos);
-        listarProdutos();
-
-    }
-
-    public void listarProdutos() {
+    private void listarProdutos() {
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
 
@@ -241,5 +232,4 @@ public class listagemVIEW extends javax.swing.JFrame {
         }
 
     }
-
 }
